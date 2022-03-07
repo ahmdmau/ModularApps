@@ -54,6 +54,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         cell.configure(backdropURL: viewModel.movieResult?.backdropPath ?? "",
                        title: viewModel.movieResult?.title ?? "-",
                        overview: viewModel.movieResult?.overview ?? "-")
+        cell.selectionStyle = .none
         return cell
     }
     
