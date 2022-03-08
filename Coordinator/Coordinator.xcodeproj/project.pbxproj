@@ -9,37 +9,14 @@
 /* Begin PBXBuildFile section */
 		67DC23A827D5BBB7001F72BA /* Coordinator.h in Headers */ = {isa = PBXBuildFile; fileRef = 67DC23A727D5BBB7001F72BA /* Coordinator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		67DC23AF27D5BBBF001F72BA /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DC23AE27D5BBBF001F72BA /* Coordinator.swift */; };
-		67DC23BD27D5BC14001F72BA /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DC23BC27D5BC14001F72BA /* HomeCoordinator.swift */; };
-		67DC23C027D5BC44001F72BA /* HomeFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67DC23BF27D5BC44001F72BA /* HomeFeature.framework */; };
-		67DC23C127D5BC44001F72BA /* HomeFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 67DC23BF27D5BC44001F72BA /* HomeFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		67DC23C427D5BC48001F72BA /* DetailFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67DC23C327D5BC48001F72BA /* DetailFeature.framework */; };
-		67DC23C527D5BC48001F72BA /* DetailFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 67DC23C327D5BC48001F72BA /* DetailFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		67DC23C727D5BC5D001F72BA /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DC23C627D5BC5D001F72BA /* DetailCoordinator.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		67DC23C227D5BC44001F72BA /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				67DC23C527D5BC48001F72BA /* DetailFeature.framework in Embed Frameworks */,
-				67DC23C127D5BC44001F72BA /* HomeFeature.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		67DC23A427D5BBB7001F72BA /* Coordinator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Coordinator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67DC23A727D5BBB7001F72BA /* Coordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Coordinator.h; sourceTree = "<group>"; };
 		67DC23AE27D5BBBF001F72BA /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		67DC23BC27D5BC14001F72BA /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		67DC23BF27D5BC44001F72BA /* HomeFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HomeFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67DC23C327D5BC48001F72BA /* DetailFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DetailFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		67DC23C627D5BC5D001F72BA /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,8 +24,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67DC23C427D5BC48001F72BA /* DetailFeature.framework in Frameworks */,
-				67DC23C027D5BC44001F72BA /* HomeFeature.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,20 +50,10 @@
 		67DC23A627D5BBB7001F72BA /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				67DC23BB27D5BBF7001F72BA /* Feature */,
 				67DC23A727D5BBB7001F72BA /* Coordinator.h */,
 				67DC23AE27D5BBBF001F72BA /* Coordinator.swift */,
 			);
 			path = Coordinator;
-			sourceTree = "<group>";
-		};
-		67DC23BB27D5BBF7001F72BA /* Feature */ = {
-			isa = PBXGroup;
-			children = (
-				67DC23BC27D5BC14001F72BA /* HomeCoordinator.swift */,
-				67DC23C627D5BC5D001F72BA /* DetailCoordinator.swift */,
-			);
-			path = Feature;
 			sourceTree = "<group>";
 		};
 		67DC23BE27D5BC44001F72BA /* Frameworks */ = {
@@ -122,7 +87,6 @@
 				67DC23A027D5BBB7001F72BA /* Sources */,
 				67DC23A127D5BBB7001F72BA /* Frameworks */,
 				67DC23A227D5BBB7001F72BA /* Resources */,
-				67DC23C227D5BC44001F72BA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -183,9 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67DC23C727D5BC5D001F72BA /* DetailCoordinator.swift in Sources */,
 				67DC23AF27D5BBBF001F72BA /* Coordinator.swift in Sources */,
-				67DC23BD27D5BC14001F72BA /* HomeCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,24 +6,74 @@
 //
 
 import UIKit
+import Networking
 
-class HomeViewController: UIViewController {
-
-    override func viewDidLoad() {
+public class HomeViewController: UIViewController {
+    
+    // MARK: - Properties
+    private let viewModel = HomeViewModel(services: HomeServices())
+    @IBOutlet weak var tableView: UITableView!
+    
+    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: "HomeViewController", bundle: Bundle(for: HomeViewController.self))
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    public override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupTableView()
+        setupViewModel()
     }
 
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension HomeViewController {
+    
+    private func setupViewModel() {
+        viewModel.delegate = self
+        viewModel.getTopRatedMovies()
     }
-    */
+    
+    private func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(ListMovieTableViewCell.nib(), forCellReuseIdentifier: ListMovieTableViewCell.identifier)
+    }
+    
+}
 
+extension HomeViewController: HomeViewModelProtocol {
+    
+    func reloadTableView() {
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.reloadData()
+        }
+    }
+    
+}
+
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.movieResults.count
+    }
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ListMovieTableViewCell.identifier, for: indexPath) as? ListMovieTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        let movie = viewModel.movieResults[indexPath.row]
+        cell.configure(posterUrl: movie.posterPath ?? "",
+                       movieTitle: movie.title ?? "-",
+                       movieLanguage: movie.originalLanguage ?? "-",
+                       movieDate: movie.releaseDate ?? "-")
+        cell.selectionStyle = .none
+        return cell
+        
+    }
+    
 }

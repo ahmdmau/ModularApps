@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Coordinator
+import HomeFeature
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
